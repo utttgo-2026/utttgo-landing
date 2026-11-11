@@ -1,29 +1,18 @@
 /* =========================================================
-   UTTT-GO
-   Landing Page de un solo mensaje
-   Sin scroll
-   ========================================================= */
-
-
-/* =========================
-   VARIABLES
-========================= */
+   UTTT-GO LANDING
+   Hero visual / Sin scroll
+========================================================= */
 
 :root {
   --primary: #d2030f;
   --primary-dark: #a8020c;
-  --primary-soft: #fff0f1;
 
-  --text: #241f1c;
+  --text: #201c1a;
   --text-soft: #625b56;
-  --muted: #7b726d;
-
   --white: #ffffff;
 
-  --border: #eadfdb;
-
   --shadow:
-    0 24px 60px rgba(37, 30, 26, 0.16);
+    0 24px 70px rgba(34, 25, 20, 0.14);
 }
 
 
@@ -37,44 +26,36 @@
   padding: 0;
 }
 
-
 html,
 body {
   width: 100%;
   height: 100%;
-
   overflow: hidden;
 }
-
 
 body {
   font-family:
     "Poppins",
     Arial,
-    Helvetica,
     sans-serif;
 
   background: #ffffff;
-
   color: var(--text);
 
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-
 a {
-  color: inherit;
   text-decoration: none;
+  color: inherit;
 }
 
 
 /* =========================
-   ESTRUCTURA GENERAL
+   LANDING
 ========================= */
 
 .landing {
-  width: 100%;
   height: 100vh;
   height: 100dvh;
 
@@ -83,7 +64,7 @@ a {
   grid-template-rows:
     76px
     minmax(0, 1fr)
-    38px;
+    32px;
 
   overflow: hidden;
 
@@ -96,7 +77,7 @@ a {
 ========================= */
 
 .header {
-  width: min(1240px, 94%);
+  width: min(1240px, 92%);
   height: 100%;
 
   margin: 0 auto;
@@ -104,24 +85,20 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  gap: 30px;
 }
 
+
+/* BRAND */
 
 .brand {
   display: flex;
   align-items: center;
-
-  gap: 12px;
+  gap: 11px;
 }
 
-
 .brand-icon {
-  width: 46px;
-  height: 46px;
-
-  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
 
   display: flex;
   align-items: center;
@@ -133,37 +110,39 @@ a {
 
   color: #ffffff;
 
-  font-size: 20px;
+  font-size: 18px;
 
   box-shadow:
     0 8px 20px rgba(210, 3, 15, 0.22);
 }
 
-
 .brand-copy {
   display: flex;
   flex-direction: column;
 
-  line-height: 1.08;
+  line-height: 1;
 }
-
 
 .brand-copy strong {
   color: var(--primary);
 
-  font-size: 22px;
-  font-weight: 700;
-}
+  font-size: 20px;
+  font-weight: 800;
 
+  letter-spacing: -0.5px;
+}
 
 .brand-copy span {
-  margin-top: 5px;
+  margin-top: 6px;
 
-  color: var(--muted);
+  color: #857b75;
 
-  font-size: 10px;
+  font-size: 9px;
+  font-weight: 500;
 }
 
+
+/* NAV */
 
 .nav {
   display: flex;
@@ -172,19 +151,16 @@ a {
   gap: 28px;
 }
 
-
 .nav a {
   position: relative;
 
-  color: var(--text);
+  color: #2e2926;
 
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 500;
 
-  transition:
-    color 0.2s ease;
+  transition: 0.2s ease;
 }
-
 
 .nav a::after {
   content: "";
@@ -192,24 +168,19 @@ a {
   position: absolute;
 
   left: 0;
-  bottom: -7px;
+  bottom: -6px;
 
   width: 0;
   height: 2px;
 
-  border-radius: 20px;
-
   background: var(--primary);
 
-  transition:
-    width 0.2s ease;
+  transition: width 0.2s ease;
 }
-
 
 .nav a:hover {
   color: var(--primary);
 }
-
 
 .nav a:hover::after {
   width: 100%;
@@ -223,9 +194,8 @@ a {
 .hero {
   position: relative;
 
-  width: min(1240px, 97%);
+  width: min(1240px, 96%);
   height: 100%;
-  min-height: 0;
 
   margin: 0 auto;
 
@@ -238,8 +208,12 @@ a {
 
   background-size: cover;
 
-  background-position:
-    center right;
+  /*
+    Movemos ligeramente la fotografía
+    hacia la derecha para mantener
+    protagonista a la vendedora.
+  */
+  background-position: center right;
 
   background-repeat: no-repeat;
 
@@ -249,11 +223,14 @@ a {
 
 /* =========================
    OVERLAY
+
+   IMPORTANTE:
+   Mucho menos blanco que antes para
+   que la imagen tenga protagonismo.
 ========================= */
 
 .hero-overlay {
   position: absolute;
-
   inset: 0;
 
   z-index: 1;
@@ -262,18 +239,17 @@ a {
     linear-gradient(
       90deg,
       rgba(255, 255, 255, 1) 0%,
-      rgba(255, 255, 255, 0.99) 23%,
-      rgba(255, 255, 255, 0.94) 38%,
-      rgba(255, 255, 255, 0.76) 51%,
-      rgba(255, 255, 255, 0.35) 65%,
-      rgba(255, 255, 255, 0.06) 82%,
-      rgba(255, 255, 255, 0) 100%
+      rgba(255, 255, 255, 0.98) 20%,
+      rgba(255, 255, 255, 0.91) 34%,
+      rgba(255, 255, 255, 0.58) 47%,
+      rgba(255, 255, 255, 0.14) 61%,
+      rgba(255, 255, 255, 0) 74%
     );
 }
 
 
 /* =========================
-   CONTENIDO
+   HERO CONTENT
 ========================= */
 
 .hero-content {
@@ -281,65 +257,64 @@ a {
 
   z-index: 2;
 
-  width: 57%;
-  max-width: 700px;
+  width: 48%;
+  max-width: 610px;
   height: 100%;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
 
-  padding:
-    clamp(36px, 5vw, 72px);
+  padding-left:
+    clamp(42px, 5vw, 72px);
 
   padding-right: 10px;
 }
 
 
 /* =========================
-   TEXTO PEQUEÑO SUPERIOR
+   EYEBROW
 ========================= */
 
 .eyebrow {
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 
   color: var(--primary);
 
-  font-size: 13px;
-  font-weight: 700;
+  font-size: 11px;
+  font-weight: 800;
 
-  letter-spacing: 3px;
+  letter-spacing: 4px;
 
   text-transform: uppercase;
 }
 
 
 /* =========================
-   TÍTULO
+   TITLE
 ========================= */
 
 .hero h1 {
-  max-width: 700px;
+  max-width: 610px;
 
   margin-bottom:
-    clamp(17px, 2.2vh, 24px);
+    clamp(18px, 2.5vh, 24px);
 
   color: var(--text);
 
   font-size:
     clamp(
-      48px,
-      5.5vw,
-      76px
+      52px,
+      5.1vw,
+      72px
     );
 
   font-weight: 800;
 
   line-height: 0.98;
 
-  letter-spacing: -3px;
+  letter-spacing: -3.5px;
 }
-
 
 .hero h1 span {
   display: block;
@@ -349,75 +324,54 @@ a {
 
 
 /* =========================
-   DESCRIPCIÓN
+   DESCRIPTION
 ========================= */
 
 .description {
-  max-width: 560px;
+  max-width: 470px;
 
-  margin-bottom: 10px;
+  margin-bottom:
+    clamp(28px, 4vh, 40px);
 
   color: var(--text-soft);
 
   font-size:
     clamp(
-      14px,
-      1.25vw,
-      17px
+      12px,
+      1.05vw,
+      15px
     );
 
-  line-height: 1.65;
+  font-weight: 400;
+
+  line-height: 1.7;
 }
 
 
 /* =========================
-   TAGLINE
-========================= */
-
-.tagline {
-  margin-bottom:
-    clamp(24px, 3.5vh, 36px);
-
-  color: var(--primary);
-
-  font-size:
-    clamp(
-      14px,
-      1.2vw,
-      17px
-    );
-
-  font-weight: 600;
-}
-
-
-/* =========================
-   ACCIONES
+   ACTIONS
 ========================= */
 
 .actions {
   display: flex;
   align-items: center;
 
-  gap: 24px;
+  gap: 25px;
 }
 
 
-/* =========================
-   GOOGLE PLAY
-========================= */
+/* GOOGLE PLAY */
 
 .play-button {
-  min-width: 215px;
-  min-height: 58px;
+  min-width: 205px;
+  height: 55px;
 
   display: flex;
   align-items: center;
 
-  gap: 13px;
+  gap: 12px;
 
-  padding:
-    10px 18px;
+  padding: 9px 17px;
 
   border-radius: 14px;
 
@@ -426,52 +380,43 @@ a {
   color: #ffffff;
 
   box-shadow:
-    0 12px 28px
-    rgba(0, 0, 0, 0.18);
+    0 13px 26px rgba(0, 0, 0, 0.18);
 }
 
-
 .play-icon {
-  width: 34px;
-  height: 34px;
-
-  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  font-size: 24px;
+  font-size: 22px;
 }
-
 
 .play-copy {
   display: flex;
   flex-direction: column;
 
-  line-height: 1.05;
+  line-height: 1;
 }
-
 
 .play-copy small {
-  margin-bottom: 4px;
+  margin-bottom: 5px;
 
-  font-size: 7px;
-  font-weight: 600;
+  font-size: 6px;
+  font-weight: 700;
 
-  letter-spacing: 1px;
+  letter-spacing: 1.1px;
 }
-
 
 .play-copy strong {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
 }
 
 
-/* =========================
-   PRIVACIDAD
-========================= */
+/* PRIVACY */
 
 .privacy-button {
   display: flex;
@@ -481,30 +426,36 @@ a {
 
   color: var(--primary);
 
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
 
   white-space: nowrap;
 
+  transition: 0.2s ease;
+}
+
+.privacy-button span {
+  font-size: 16px;
+
   transition:
-    color 0.2s ease,
     transform 0.2s ease;
 }
 
-
 .privacy-button:hover {
   color: var(--primary-dark);
+}
 
+.privacy-button:hover span {
   transform:
-    translateX(4px);
+    translateX(5px);
 }
 
 
 /* =========================
-   CAMPUS
+   SIGNATURE
 ========================= */
 
-.campus-badge {
+.hero-signature {
   position: absolute;
 
   z-index: 2;
@@ -512,33 +463,46 @@ a {
   right: 22px;
   bottom: 18px;
 
-  padding:
-    8px 14px;
+  display: flex;
+  align-items: center;
 
-  border:
-    1px solid rgba(255, 255, 255, 0.7);
+  gap: 8px;
 
-  border-radius: 999px;
+  padding: 8px 14px;
+
+  border-radius: 100px;
 
   background:
-    rgba(255, 255, 255, 0.83);
+    rgba(255, 255, 255, 0.82);
 
-  color: #514843;
+  backdrop-filter:
+    blur(12px);
+
+  color: #514944;
 
   font-size: 8px;
   font-weight: 500;
 
-  backdrop-filter:
-    blur(10px);
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.hero-signature span {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: var(--primary);
 }
 
 
 /* =========================
-   FOOTER
+   BOTTOM BAR
 ========================= */
 
-.footer {
-  width: min(1240px, 94%);
+.bottom-bar {
+  width: min(1240px, 92%);
   height: 100%;
 
   margin: 0 auto;
@@ -547,115 +511,85 @@ a {
   align-items: center;
   justify-content: space-between;
 
-  gap: 20px;
+  color: #928984;
 
-  overflow: hidden;
-
-  color: #827872;
-
-  font-size: 8px;
+  font-size: 7px;
 }
 
-
-.footer span,
-.footer a {
-  white-space: nowrap;
-}
-
-
-.footer a {
+.bottom-bar a {
   color: var(--primary);
-
   font-weight: 500;
 }
 
 
 /* =========================================================
    LAPTOP 1366 x 768
-   ========================================================= */
+========================================================= */
 
-@media (max-height: 770px) and (min-width: 801px) {
+@media (max-height: 780px) and (min-width: 801px) {
 
   .landing {
     grid-template-rows:
       65px
       minmax(0, 1fr)
-      30px;
+      27px;
   }
 
-
   .brand-icon {
-    width: 39px;
-    height: 39px;
+    width: 38px;
+    height: 38px;
 
+    font-size: 16px;
+  }
+
+  .brand-copy strong {
     font-size: 17px;
   }
 
-
-  .brand-copy strong {
-    font-size: 18px;
-  }
-
-
   .hero {
-    border-radius: 23px;
+    border-radius: 22px;
   }
-
 
   .hero-content {
-    width: 56%;
+    width: 50%;
 
-    padding:
-      36px 42px;
+    padding-left: 42px;
   }
-
 
   .eyebrow {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 
-    font-size: 10px;
+    font-size: 9px;
   }
 
-
   .hero h1 {
-    margin-bottom: 13px;
+    margin-bottom: 14px;
 
     font-size:
       clamp(
         45px,
-        4.8vw,
+        4.5vw,
         61px
       );
 
-    letter-spacing: -2.5px;
+    letter-spacing: -3px;
   }
-
 
   .description {
-    font-size: 12px;
+    max-width: 440px;
 
-    margin-bottom: 7px;
+    margin-bottom: 25px;
+
+    font-size: 11px;
   }
-
-
-  .tagline {
-    margin-bottom: 22px;
-
-    font-size: 12px;
-  }
-
 
   .play-button {
     min-width: 190px;
-    min-height: 50px;
-
-    padding:
-      8px 14px;
+    height: 49px;
   }
 
-
   .play-copy strong {
-    font-size: 16px;
+    font-size: 15px;
   }
 
 }
@@ -663,80 +597,69 @@ a {
 
 /* =========================================================
    TABLET
-   ========================================================= */
+========================================================= */
 
 @media (max-width: 800px) {
 
   .landing {
     grid-template-rows:
-      62px
+      60px
       minmax(0, 1fr)
-      28px;
+      25px;
   }
 
-
-  .header,
-  .footer {
+  .header {
     width: 94%;
   }
 
-
   .brand-icon {
-    width: 36px;
-    height: 36px;
+    width: 34px;
+    height: 34px;
 
-    font-size: 16px;
+    font-size: 15px;
   }
-
 
   .brand-copy strong {
-    font-size: 16px;
+    font-size: 15px;
   }
-
 
   .brand-copy span {
     display: none;
   }
 
-
   .nav {
-    gap: 13px;
+    gap: 15px;
   }
-
 
   .nav a {
     font-size: 9px;
   }
 
-
   .hero {
     width: 97%;
 
     background-position:
-      65% center;
+      67% center;
 
     border-radius: 20px;
   }
-
 
   .hero-overlay {
     background:
       linear-gradient(
         90deg,
-        rgba(255, 255, 255, 1) 0%,
-        rgba(255, 255, 255, 0.98) 47%,
-        rgba(255, 255, 255, 0.76) 70%,
-        rgba(255, 255, 255, 0.18) 100%
+        rgba(255,255,255,1) 0%,
+        rgba(255,255,255,0.98) 40%,
+        rgba(255,255,255,0.68) 65%,
+        rgba(255,255,255,0.05) 100%
       );
   }
 
-
   .hero-content {
-    width: 72%;
+    width: 67%;
 
-    padding: 28px;
+    padding-left: 28px;
   }
-
 
   .hero h1 {
     font-size:
@@ -749,65 +672,50 @@ a {
     letter-spacing: -2px;
   }
 
-
   .description {
-    font-size: 11px;
-  }
+    max-width: 370px;
 
-
-  .tagline {
-    font-size: 11px;
-  }
-
-
-  .actions {
-    gap: 14px;
-  }
-
-
-  .campus-badge {
-    display: none;
+    font-size: 10px;
   }
 
 }
 
 
 /* =========================================================
-   MÓVIL
-   ========================================================= */
+   MOBILE
+========================================================= */
 
 @media (max-width: 600px) {
 
   .landing {
     grid-template-rows:
-      56px
+      54px
       minmax(0, 1fr)
-      26px;
+      23px;
   }
-
 
   .header {
-    width: 95%;
+    width: 94%;
   }
-
 
   .brand-icon {
-    width: 33px;
-    height: 33px;
+    width: 32px;
+    height: 32px;
 
-    font-size: 14px;
+    font-size: 13px;
   }
-
 
   .brand-copy strong {
     font-size: 14px;
   }
 
+  .nav a {
+    font-size: 8px;
+  }
 
   .nav a:last-child {
     display: none;
   }
-
 
   .hero {
     width: 100%;
@@ -815,171 +723,86 @@ a {
     border-radius: 0;
 
     background-position:
-      70% center;
+      68% center;
   }
-
 
   .hero-overlay {
     background:
       linear-gradient(
         90deg,
-        rgba(255, 255, 255, 1) 0%,
-        rgba(255, 255, 255, 0.98) 60%,
-        rgba(255, 255, 255, 0.72) 85%,
-        rgba(255, 255, 255, 0.3) 100%
+        rgba(255,255,255,1) 0%,
+        rgba(255,255,255,0.98) 48%,
+        rgba(255,255,255,0.7) 73%,
+        rgba(255,255,255,0.12) 100%
       );
   }
 
-
   .hero-content {
-    width: 88%;
+    width: 85%;
 
-    padding: 22px;
+    padding-left: 22px;
   }
 
-
   .eyebrow {
-    font-size: 9px;
+    font-size: 8px;
 
     margin-bottom: 8px;
   }
 
-
   .hero h1 {
-    margin-bottom: 11px;
+    margin-bottom: 12px;
 
     font-size:
       clamp(
-        34px,
+        35px,
         10vw,
-        45px
+        46px
       );
 
-    letter-spacing: -1.5px;
+    letter-spacing: -2px;
   }
-
 
   .description {
-    max-width: 390px;
+    max-width: 330px;
 
-    font-size: 10px;
+    margin-bottom: 20px;
+
+    font-size: 9px;
+
+    line-height: 1.6;
   }
-
-
-  .tagline {
-    margin-bottom: 17px;
-
-    font-size: 10px;
-  }
-
 
   .actions {
     flex-direction: column;
 
     align-items: flex-start;
 
-    gap: 10px;
+    gap: 11px;
   }
-
 
   .play-button {
     min-width: 175px;
-    min-height: 46px;
+    height: 45px;
 
-    padding:
-      7px 12px;
+    padding: 7px 12px;
   }
-
 
   .play-copy strong {
     font-size: 14px;
   }
 
-
   .privacy-button {
     font-size: 9px;
   }
 
-
-  .footer {
-    width: 94%;
-
-    justify-content: space-between;
-
-    font-size: 6px;
-  }
-
-
-  .footer span:nth-child(2) {
+  .hero-signature {
     display: none;
   }
 
-}
+  .bottom-bar {
+    width: 93%;
 
-
-/* =========================================================
-   PANTALLAS MUY BAJAS
-   ========================================================= */
-
-@media (max-height: 620px) and (min-width: 601px) {
-
-  .landing {
-    grid-template-rows:
-      54px
-      minmax(0, 1fr)
-      24px;
-  }
-
-
-  .hero-content {
-    padding:
-      24px 34px;
-  }
-
-
-  .eyebrow {
-    margin-bottom: 6px;
-
-    font-size: 8px;
-  }
-
-
-  .hero h1 {
-    margin-bottom: 7px;
-
-    font-size:
-      clamp(
-        37px,
-        4.3vw,
-        48px
-      );
-  }
-
-
-  .description {
-    margin-bottom: 5px;
-
-    font-size: 9px;
-  }
-
-
-  .tagline {
-    margin-bottom: 12px;
-
-    font-size: 9px;
-  }
-
-
-  .play-button {
-    min-height: 42px;
-
-    padding:
-      6px 11px;
-  }
-
-
-  .play-copy strong {
-    font-size: 13px;
+    font-size: 6px;
   }
 
 }
