@@ -47,7 +47,7 @@ La aplicación no procesa pagos electrónicos.
 - CSS3
 - GitHub Pages
 
-No se utiliza JavaScript.
+JavaScript vanilla para el modal del video promocional.
 
 ## Estructura
 

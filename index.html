@@ -111,6 +111,17 @@
 
           </div>
 
+          <button
+            class="video-button"
+            type="button"
+            aria-haspopup="dialog"
+            aria-controls="video-modal"
+            aria-expanded="false"
+          >
+            <span class="video-button-icon" aria-hidden="true">▶</span>
+            <span>Ver video promocional</span>
+          </button>
+
           <a
             class="privacy-button"
             href="https://utttgo-2026.github.io/utttgo-legal/privacidad.html"
@@ -133,6 +144,25 @@
 
     </section>
 
+    <div
+      class="video-modal"
+      id="video-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="video-modal-title"
+      hidden
+    >
+      <div class="video-modal-content">
+        <div class="video-modal-header">
+          <h2 id="video-modal-title">Video promocional</h2>
+          <button class="video-modal-close" type="button" aria-label="Cerrar video">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="video-frame" data-video-frame></div>
+      </div>
+    </div>
+
 
     <!-- FOOTER MÍNIMO -->
     <div class="bottom-bar">
@@ -148,6 +178,72 @@
     </div>
 
   </main>
+
+  <script>
+    const videoButton = document.querySelector(".video-button");
+    const videoModal = document.querySelector(".video-modal");
+    const videoFrame = videoModal.querySelector("[data-video-frame]");
+    const closeButton = videoModal.querySelector(".video-modal-close");
+    const youtubeUrl = "https://www.youtube-nocookie.com/embed/GveGVnSeX3g?autoplay=1&rel=0";
+
+    function openVideo() {
+      const iframe = document.createElement("iframe");
+
+      iframe.src = youtubeUrl;
+      iframe.title = "Video promocional de UTTT-GO";
+      iframe.allow = "autoplay; encrypted-media; picture-in-picture";
+      iframe.allowFullscreen = true;
+
+      videoFrame.appendChild(iframe);
+      videoModal.hidden = false;
+      videoButton.setAttribute("aria-expanded", "true");
+      document.body.classList.add("modal-open");
+      closeButton.focus();
+    }
+
+    function closeVideo() {
+      videoModal.hidden = true;
+      videoFrame.replaceChildren();
+      videoButton.setAttribute("aria-expanded", "false");
+      document.body.classList.remove("modal-open");
+      videoButton.focus();
+    }
+
+    videoButton.addEventListener("click", openVideo);
+    closeButton.addEventListener("click", closeVideo);
+
+    videoModal.addEventListener("click", (event) => {
+      if (event.target === videoModal) {
+        closeVideo();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (videoModal.hidden) {
+        return;
+      }
+
+      if (event.key === "Tab") {
+        const focusableElements = videoModal.querySelectorAll(
+          "button, iframe, [href], input, select, textarea, [tabindex]:not([tabindex=\"-1\"])",
+        );
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (event.shiftKey && document.activeElement === firstElement) {
+          event.preventDefault();
+          lastElement.focus();
+        } else if (!event.shiftKey && document.activeElement === lastElement) {
+          event.preventDefault();
+          firstElement.focus();
+        }
+      }
+
+      if (event.key === "Escape") {
+        closeVideo();
+      }
+    });
+  </script>
 
 </body>
 
