@@ -486,7 +486,7 @@ a {
 }
 
 .video-modal-content {
-  width: min(900px, 100%);
+  width: min(430px, 100%);
   padding: 18px;
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 20px;
@@ -532,8 +532,8 @@ a {
 
 .video-frame {
   position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
+  width: min(430px, 100%, calc((100dvh - 150px) * 9 / 16));
+  aspect-ratio: 9 / 16;
   overflow: hidden;
   border-radius: 12px;
   background: #000000;
