@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://endearing-rolypoly-77d434.netlify.app/sitemap.xml
